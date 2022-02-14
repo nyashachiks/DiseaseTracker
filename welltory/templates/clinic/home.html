@@ -1,0 +1,104 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="row">
+    Welcome to Welltory. You're logged in now...
+    <div align="right">
+        <div align="right">
+            <a href="{% url 'welltory:patientlist' %}"
+               class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-arrow-right fa-sm text-white-50"></i> View Patients</a>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+            <!-- Uptake Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Welltory API Partner Uptake</h6>
+                    <small><i>Welltory Dummy Data</i></small>
+                </div>
+                <div class="card-body">
+                    <h4 class="small font-weight-bold">HealthKit <span
+                            class="float-right">20%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">GoogleFit <span
+                            class="float-right">40%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Apple Watch <span
+                            class="float-right">60%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Welltory <span
+                            class="float-right">80%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">FitBit <span
+                            class="float-right"></span></h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+            <!-- Uptake Card Example -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">BMI Disease Tracker Stats</h6>
+                    <small><i>BMI Dummy Data</i></small>
+                </div>
+                <div class="card-body">
+                    <h4 class="small font-weight-bold">HealthKit <span
+                            class="float-right">10%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%"
+                             aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">GoogleFit <span
+                            class="float-right">20%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
+                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Apple Watch <span
+                            class="float-right">40%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar" role="progressbar" style="width: 40%"
+                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">Welltory <span
+                            class="float-right">60%</span></h4>
+                    <div class="progress mb-4">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 60%"
+                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <h4 class="small font-weight-bold">FitBit <span
+                            class="float-right">80%</span></h4>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%"
+                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

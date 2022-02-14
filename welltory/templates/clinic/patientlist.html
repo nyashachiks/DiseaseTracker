@@ -1,0 +1,82 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-lg-12">
+        <div align="right">
+            <a href="{% url 'welltory:createpatient' %}"
+               class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                <i class="fas fa-arrow-right fa-sm text-white-50"></i> Create Patient</a>
+        </div>
+        <br/>
+        <div class="box-element">
+            <h4>Patient List</h4>
+            <table>
+                <tr>
+                    <td width="100"></td>
+                    <td width="300"><b>Client Name</b></td>
+                    <td width="300"><b>ID Number</b></td>
+                    <td width="300"><b>Action</b></td>
+                </tr>
+                {% for patient in patientlist %}
+                <tr>
+                    <td></td>
+                    <td><p>{{ patient.first_name }}
+                        {{ patient.last_name }}</p></td>
+                    <td><p>{{ patient.national_id }}</p></td>
+                    <td><p><a href="{% url 'welltory:patientdetails' patient.id %}"
+                              class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> View</a>
+                        <a href="{% url 'welltory:updatepatient' patient.id %}"
+                           class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+                            <i class="fas fa-info fa-sm text-white-50"></i> Update</a>
+                        <a href="{% url 'welltory:deletepatient' patient.id %}"
+                           class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
+                            <i class="fas fa-trash fa-sm text-white-50"></i> Delete</a></p></td>
+                </tr>
+                {% endfor %}
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <div align="center">
+                            <!--PAGINATION-->
+                            {% if is_paginated %}
+
+                            {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mb-4" href="?page=1"> << </a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">
+                                < </a>
+                            {% endif %}
+
+                            {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                            <a class="btn btn-info mb-4" href="?page={{ num }}"> {{ num }} </a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ num }}"> {{ num }} </a>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">
+                                > </a>
+                            <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">
+                                >> </a>
+                            {% endif %}
+
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

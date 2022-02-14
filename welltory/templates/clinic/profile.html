@@ -1,0 +1,120 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="box-element" align="center">
+            <img class="img-profile rounded-circle" src="{{ user.practitioner.image.url }}">
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="box-element">
+            <h4>Practitioner Details</h4>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>First Name: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.first_name }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Last Name: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.last_name }}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Email: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.email }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Date Of Birth: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.dateOfBirth }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Gender </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.gender }}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>National ID: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.national_id }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Mobile: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.mobile }}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Address 1: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.street1 }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Address 2: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.street2 }}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>City: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.city }}</p>
+                </div>
+                <div class="col-sm-2 mb-3 mb-sm-0">
+                    <p><b>Country: </b></p>
+                </div>
+                <div class="col-sm-4">
+                    <p>{{ user.practitioner.country }}</p>
+                </div>
+                <br>
+            </div>
+            <div>
+                    <a href="{% url 'welltory:updatepractitioner' %}"
+                       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm vbtn btn-primary col-12">
+                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> Update My Practitioner Details</a>
+                </div>
+                <br/>
+                <div>
+                    <a href="{% url 'welltory:updateuser' %}"
+                       class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm btn btn-primary col-12" >
+                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> Edit My User Account</a>
+                </div>
+        </div>
+        <br/>
+    </div>
+</div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

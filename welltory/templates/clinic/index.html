@@ -1,0 +1,38 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box-element">
+            <h4>Welcome to Welltory. Please login...</h4>
+            <form class="user" method="POST">
+                {% csrf_token %}
+
+                {{ form|crispy }}
+                <br/>
+
+                <button type="submit" class="btn btn-primary col-12">
+                    Login
+                </button>
+            </form>
+            <br/>
+        </div>
+        <div class="text-center">
+                <a class="small" href="{% url 'welltory:register' %}">Create an Account</a>
+            </div>
+            <div class="text-center">
+                <a class="small" href="{% url 'password_reset' %}">Forgot Password?</a>
+            </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+
+        </div>
+    </div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

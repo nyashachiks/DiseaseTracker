@@ -1,0 +1,24 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="box-element">
+            <h4>Logout</h4>
+            You've been logged out...
+            <div class="text-center">
+                <a class="small" href="{% url 'welltory:index' %}">Log back in</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="box-element">
+            
+        </div>
+    </div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

@@ -18,9 +18,16 @@ from .models import (BioMarker,
                     Disease,
                     Recommendation,
                     Practitioner,
-                    Patient
+                    Patient,
+                    Diagnosis,
+                    DiagnosisDoc
                     )
-from .forms import UserRegisterForm, UserUpdateForm, PractitionerUpdateForm, PatientForm, ProfileGrayedForm
+from .forms import (UserRegisterForm,
+                    UserUpdateForm,
+                    PractitionerUpdateForm,
+                    PatientForm,
+                    ProfileGrayedForm,
+                    DiagnosisForm)
 from .serializers import (BioMarkerSerializer,
                           ParameterSerializer,
                           ReadingSerializer,
@@ -223,3 +230,92 @@ class PatientDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteV
             return True
         else:
             return False
+
+
+class DiagnosisListView(LoginRequiredMixin, generic.ListView):
+    model = Diagnosis
+    template_name = 'clinic/diagnosislist.html'
+    context_object_name = 'diagnosislist'
+    paginate_by = 20
+
+    def get_queryset(self):
+        self.patient = get_object_or_404(Patient, national_id=self.kwargs['national_id'])
+        patient = self.patient.id
+        return Diagnosis.objects.filter(patient=patient)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['patient'] = self.patient
+        return context
+
+
+class DiagnosisDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Diagnosis
+    template_name = 'clinic/diagnosis_detail.html'
+
+
+@login_required
+def diagnosiscreate(request, national_id):
+    if request.method == 'POST':
+        form = DiagnosisForm(request.POST)
+        if form.is_valid():
+            patient = Patient.objects.get(national_id=national_id)
+            diagnosis_id = patient.national_id
+            patientinstance = form.save(commit=False)
+            patientinstance.patient = patient
+            patientinstance.practitioner = request.user.practitioner
+            patientinstance.save()
+            return HttpResponseRedirect('../diagnosislist/' + str(diagnosis_id))
+        else:
+            print(form.errors)
+    else:
+        form = DiagnosisForm()
+        return render(request, 'clinic/diagnosis_form.html', {'form': form})
+
+
+@login_required
+def diagnosisuploadprep(request, national_id):
+    diagnosis = national_id
+    print(diagnosis)
+    return render(request, 'clinic/diagnosisuploadprep.html', {'output': diagnosis})
+
+
+@login_required
+def diagnosisupload(request):
+    if request.method == 'POST':
+        myfile = request.FILES.get('file')
+        diagnosis = request.POST.get('diagnosis')
+        diagnosis = Diagnosis.objects.get(pk=diagnosis)
+        DiagnosisDoc.objects.create(upload=myfile, diagnosis=diagnosis)
+        return HttpResponse('')
+    return JsonResponse({'post':'false'})
+
+
+class DiagnosisDocListView(LoginRequiredMixin, generic.ListView):
+    model = DiagnosisDoc
+    template_name = 'clinic/diagnosisdoclist.html'
+    context_object_name = 'diagnosisdoclist'
+    paginate_by = 20
+
+    def get_queryset(self):
+        self.patient = get_object_or_404(Diagnosis, pk=self.kwargs['id'])
+        diagnosis = self.patient.pk
+        return DiagnosisDoc.objects.filter(diagnosis=diagnosis)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['diagnosis'] = self.patient
+        return context
+
+
+@login_required
+def diagnosisdownload(request, id):
+    path_object = DiagnosisDoc.objects.get(id=id)
+    path = path_object.upload
+    file_path = os.path.join(settings.MEDIA_ROOT, str(path))
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/pdf")
+            response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+            return response
+        raise Http404

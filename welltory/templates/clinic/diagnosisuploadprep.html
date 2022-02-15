@@ -1,0 +1,36 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'js/dropzone/dist/dropzone.js' %}"></script>
+<link href="{% static 'js/dropzone/dist/dropzone.css' %}" rel="stylesheet" type="text/css"/>
+<br/>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-element" align="center">
+            <h4>Upload Supporting Documents Here</h4>
+            <small><i><font color="red">
+                (Supports upload of multiple files in one drag-and-drop.
+                <br/>Also supports numerous file-types including pdf, docx, xlsx, csv, jpg, png etc.)
+            </font></i></small>
+            <form method="POST" action="../diagnosisupload" class="dropzone" id="my-awesome-dropzone"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="hidden" name="diagnosis" value="{{ output }}"
+                       id="activity">
+            </form>
+            <br/>
+            <a class="btn btn-secondary btn-icon-split"
+               href="{% url 'welltory:diagnosisdetails' output %}">
+                <span class="icon text-white-50"><i class="fas fa-arrow-left"></i></span>
+                <span class="text"> Back To Diagnosis Details</span>
+            </a>
+        </div>
+    </div>
+
+</div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}
+

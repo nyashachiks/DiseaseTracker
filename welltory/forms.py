@@ -3,7 +3,7 @@ from django.forms import ModelForm, Textarea
 from django.forms.widgets import DateInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Practitioner, Patient
+from .models import Practitioner, Patient, Diagnosis
 
 
 # USERS, PRACTITIONERS & AUTHENTICATION ====================================================================================
@@ -115,3 +115,20 @@ class ProfileGrayedForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'username', 'email')
+
+
+class DiagnosisForm(forms.ModelForm):
+    class Meta:
+        model = Diagnosis
+
+        fields = (
+            'symptoms',
+        )
+
+        labels = {
+            'symptoms': 'Symptoms & Diagnosis',
+        }
+
+        widgets = {
+            'symptoms': Textarea(attrs={'cols': 80, 'rows': 10}),
+        }

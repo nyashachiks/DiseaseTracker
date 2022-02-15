@@ -16,4 +16,11 @@ urlpatterns = [
    path('createpatient/', views.PatientCreateView.as_view(), name='createpatient'),
    path('updatepatient/<int:pk>/update', views.PatientUpdateView.as_view(), name='updatepatient'),
    path('deletepatient/<int:pk>/delete', views.PatientDeleteView.as_view(), name='deletepatient'),
+   path('diagnosislist/<national_id>', views.DiagnosisListView.as_view(), name='diagnosislist'),
+   path('diagnosisdetails/<int:pk>', views.DiagnosisDetailView.as_view(), name='diagnosisdetails'),
+   path('creatediagnosis/<national_id>', views.diagnosiscreate, name='creatediagnosis'),
+   path('diagnosisuploadprep/<national_id>', views.diagnosisuploadprep, name='diagnosisuploadprep'),
+   path('diagnosisupload', views.diagnosisupload, name='diagnosisupload'),
+   path('diagnosisdoclist/<id>/', views.DiagnosisDocListView.as_view(), name='diagnosisdoclist'),
+   path('diagnosisdownload/<id>/', views.diagnosisdownload, name='diagnosisdownload'),
 ]

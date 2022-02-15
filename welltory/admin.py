@@ -6,7 +6,9 @@ from .models import (BioMarker,
                      Disease,
                      Recommendation,
                      Practitioner,
-                     Patient)
+                     Patient,
+                     Diagnosis,
+                     DiagnosisDoc)
 
 # Register your models here.
 admin.site.register(BioMarker)
@@ -16,4 +18,6 @@ admin.site.register(Disease)
 admin.site.register(Recommendation)
 admin.site.register(Practitioner)
 admin.site.register(Patient)
+admin.site.register(Diagnosis)
+admin.site.register(DiagnosisDoc)
 

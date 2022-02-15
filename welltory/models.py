@@ -133,6 +133,7 @@ class Patient(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} ({self.national_id})'
+        # return self.national_id
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -151,6 +152,24 @@ class Patient(models.Model):
         return reverse('welltory:patientdetails', kwargs={'pk': self.pk})
 
 
+class Diagnosis(models.Model):
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    practitioner = models.ForeignKey(Practitioner, on_delete=models.CASCADE)
+    symptoms = models.CharField(max_length=1000)
+    date_created = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return str(self.patient)
+
+    def get_absolute_url(self):
+        return reverse('welltory:diagnosisdetails', kwargs={'pk': self.pk})
+
+
+class DiagnosisDoc(models.Model):
+    upload = models.FileField(upload_to='documents')
+    diagnosis = models.ForeignKey(Diagnosis, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.pk)
 
 

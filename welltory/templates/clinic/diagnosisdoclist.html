@@ -11,30 +11,21 @@
         </div>
         <br/>
         <div class="box-element">
-            <h4>Patient List</h4>
+            <h4>Diagnosis Attached Documents</h4>
             <table>
                 <tr>
                     <td width="100"></td>
-                    <td width="300"><b>Patient Name</b></td>
-                    <td width="300"><b>D.O.B</b></td>
-                    <td width="300"><b>Gender</b></td>
+                    <td width="600"><b>Document Name</b></td>
                     <td width="300"><b>Action</b></td>
                 </tr>
-                {% for patient in patientlist %}
+                {% for diagnosisdoc in diagnosisdoclist %}
                 <tr>
                     <td></td>
-                    <td><p>{{ patient.first_name }} {{ patient.last_name }}</p></td>
-                    <td><p>{{ patient.dateOfBirth }}</p></td>
-                    <td><p>{{ patient.gender }}</p></td>
-                    <td><p><a href="{% url 'welltory:patientdetails' patient.id %}"
-                              class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
-                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> View</a>
-                        <a href="{% url 'welltory:updatepatient' patient.id %}"
-                           class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
-                            <i class="fas fa-info fa-sm text-white-50"></i> Update</a>
-                        <a href="{% url 'welltory:deletepatient' patient.id %}"
-                           class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                            <i class="fas fa-trash fa-sm text-white-50"></i> Delete</a></p></td>
+
+                    <td><p>{{ diagnosisdoc.upload }}</p></td>
+                    <td><p><a href="{% url 'welltory:diagnosisdownload' diagnosisdoc.id %}"
+                            class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                            <i class="fas fa-arrow-right fa-sm text-white-50"></i> Download</a></p></td>
                 </tr>
                 {% endfor %}
 

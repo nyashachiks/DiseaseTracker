@@ -11,30 +11,22 @@
         </div>
         <br/>
         <div class="box-element">
-            <h4>Patient List</h4>
+            <h4>Diagnosis History</h4>
             <table>
                 <tr>
                     <td width="100"></td>
+                    <td width="300"><b>Date Logged</b></td>
                     <td width="300"><b>Patient Name</b></td>
-                    <td width="300"><b>D.O.B</b></td>
-                    <td width="300"><b>Gender</b></td>
                     <td width="300"><b>Action</b></td>
                 </tr>
-                {% for patient in patientlist %}
+                {% for diagnosis in diagnosislist %}
                 <tr>
                     <td></td>
-                    <td><p>{{ patient.first_name }} {{ patient.last_name }}</p></td>
-                    <td><p>{{ patient.dateOfBirth }}</p></td>
-                    <td><p>{{ patient.gender }}</p></td>
-                    <td><p><a href="{% url 'welltory:patientdetails' patient.id %}"
+                    <td><p>{{ diagnosis.date_created }}</p></td>
+                    <td><p>{{ diagnosis.patient.first_name }} {{ diagnosis.patient.last_name }}</p></td>
+                    <td><p><a href="{% url 'welltory:diagnosisdetails' diagnosis.id %}"
                               class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
-                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> View</a>
-                        <a href="{% url 'welltory:updatepatient' patient.id %}"
-                           class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
-                            <i class="fas fa-info fa-sm text-white-50"></i> Update</a>
-                        <a href="{% url 'welltory:deletepatient' patient.id %}"
-                           class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">
-                            <i class="fas fa-trash fa-sm text-white-50"></i> Delete</a></p></td>
+                        <i class="fas fa-arrow-right fa-sm text-white-50"></i> View Diagnosis</a></p></td>
                 </tr>
                 {% endfor %}
 

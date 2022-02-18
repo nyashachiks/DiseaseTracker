@@ -1,0 +1,5 @@
+SECRET_KEY=ryxk%7it=3vvr_v@0)*_t_@n0ery$+b@+$il8voiy-*+gn)v#+
+DEBUG=True
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True

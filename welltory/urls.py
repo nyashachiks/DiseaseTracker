@@ -23,4 +23,5 @@ urlpatterns = [
    path('diagnosisupload', views.diagnosisupload, name='diagnosisupload'),
    path('diagnosisdoclist/<id>/', views.DiagnosisDocListView.as_view(), name='diagnosisdoclist'),
    path('diagnosisdownload/<id>/', views.diagnosisdownload, name='diagnosisdownload'),
+   path('documenttext/<int:pk>', views.ConvertedTextDetailView.as_view(), name='documenttext'),
 ]

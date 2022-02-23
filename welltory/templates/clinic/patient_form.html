@@ -5,12 +5,19 @@
 <br/>
 <div class="row">
     <div class="col-lg-4">
+        <br><br><br>
         <div class="box-element">
             <img class="img-profile rounded-circle" src="{{ object.image.url }}">
             <br/>
         </div>
     </div>
     <div class="col-lg-8">
+        <div align="right">
+            <a href="{% url 'welltory:patientlist' %}"
+               class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
+                <i class="fas fa-arrow-right fa-sm text-white-50"></i>Back To Patient List</a>
+        </div>
+        <br>
         <div class="box-element">
             <h3>Create Patient</h3>
             <form method="POST">

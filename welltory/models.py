@@ -159,7 +159,7 @@ class Diagnosis(models.Model):
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return str(self.patient)
+        return str(self.symptoms)
 
     def get_absolute_url(self):
         return reverse('welltory:diagnosisdetails', kwargs={'pk': self.pk})
@@ -168,6 +168,7 @@ class Diagnosis(models.Model):
 class DiagnosisDoc(models.Model):
     upload = models.FileField(upload_to='documents')
     diagnosis = models.ForeignKey(Diagnosis, on_delete=models.CASCADE)
+    content = models.CharField(max_length=2000, null=True)
 
     def __str__(self):
         return str(self.pk)

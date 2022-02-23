@@ -33,6 +33,7 @@ from .serializers import (BioMarkerSerializer,
                           ReadingSerializer,
                           DiseaseSerializer,
                           RecommendationSerializer)
+from .utilities import ReadContents
 
 
 # Create your views here.
@@ -241,7 +242,7 @@ class DiagnosisListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         self.patient = get_object_or_404(Patient, national_id=self.kwargs['national_id'])
         patient = self.patient.id
-        return Diagnosis.objects.filter(patient=patient)
+        return Diagnosis.objects.filter(patient=patient).order_by('-date_created')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -287,6 +288,33 @@ def diagnosisupload(request):
         diagnosis = request.POST.get('diagnosis')
         diagnosis = Diagnosis.objects.get(pk=diagnosis)
         DiagnosisDoc.objects.create(upload=myfile, diagnosis=diagnosis)
+        records = DiagnosisDoc.objects.filter(content__isnull=True)
+        for row in records:
+            path = row.upload.path
+            pre_purge = path.rfind('\\')
+            filename = path[pre_purge + 1:]
+            name, extension = filename.split('.')
+            filename = 'media/documents/' + str(filename)
+            print('==========================>>>>>')
+            print(filename)
+            print('==========================>>>>>')
+
+            if extension == 'jpg' or extension == 'png':
+                file_object = ReadContents(filename)
+                text = file_object.read_image()
+                row.content = text
+                row.save()
+            elif extension == 'pdf':
+                file_object = ReadContents(filename)
+                text = file_object.read_pdf()
+                row.content = text
+                row.save()
+            elif extension == 'docx':
+                file_object = ReadContents(filename)
+                text = file_object.read_docx()
+                row.content = text
+                row.save()
+
         return HttpResponse('')
     return JsonResponse({'post':'false'})
 
@@ -298,13 +326,16 @@ class DiagnosisDocListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 20
 
     def get_queryset(self):
-        self.patient = get_object_or_404(Diagnosis, pk=self.kwargs['id'])
-        diagnosis = self.patient.pk
+        self.diagnosis = get_object_or_404(Diagnosis, pk=self.kwargs['id'])
+        diagnosis = self.diagnosis.pk
+        print("=============>>>>>>>>")
+        print(diagnosis)
+        print("=================>>>>")
         return DiagnosisDoc.objects.filter(diagnosis=diagnosis)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['diagnosis'] = self.patient
+        context['diagnosis'] = self.diagnosis
         return context
 
 
@@ -319,3 +350,9 @@ def diagnosisdownload(request, id):
             response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
             return response
         raise Http404
+
+
+
+class ConvertedTextDetailView(LoginRequiredMixin, generic.DetailView):
+    model = DiagnosisDoc
+    template_name = 'clinic/documentdetails.html'

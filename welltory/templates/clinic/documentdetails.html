@@ -1,0 +1,44 @@
+{% extends 'clinic/main.html' %}
+{% load static %}
+{% block content %}
+<br/>
+<div class="row">
+    <div class="col-lg-4">
+        <br><br><br>
+        <div class="box-element" align="center">
+            <div align="center">
+
+            </div>
+            <div align="right">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div align="right">
+            <a href="{% url 'welltory:patientlist' %}"
+               class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
+                <i class="fas fa-arrow-right fa-sm text-white-50"></i>Back To Patient List</a>
+        </div>
+        <br>
+        <div class="box-element">
+            <h4>Text Converted From Uploaded Files</h4>
+            <small><i><font color="red">JPG, PNG, PDF Or DOCX</font></i></small>
+            <br/>
+            {{ object.content }}
+            <br/><br/>
+            <div>
+                <a href="{% url 'welltory:patientlist' %}"
+                   class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm vbtn btn-primary col-12">
+                    <i class="fas fa-arrow-right fa-sm text-white-50"></i> Back</a>
+            </div>
+            <br/>
+        </div>
+        <br/>
+    </div>
+</div>
+</div>
+
+</div>
+<br/>
+{% endblock content %}

@@ -5,9 +5,9 @@
 <div class="row">
     <div class="col-lg-12">
         <div align="right">
-            <a href="{% url 'welltory:createpatient' %}"
-               class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
-                <i class="fas fa-arrow-right fa-sm text-white-50"></i> Create Patient</a>
+            <a href="{% url 'welltory:patientlist' %}"
+               class="d-none d-sm-inline-block btn btn-sm btn-secondary shadow-sm">
+                <i class="fas fa-arrow-right fa-sm text-white-50"></i>Back To Patient List</a>
         </div>
         <br/>
         <div class="box-element">
@@ -23,9 +23,14 @@
                     <td></td>
 
                     <td><p>{{ diagnosisdoc.upload }}</p></td>
-                    <td><p><a href="{% url 'welltory:diagnosisdownload' diagnosisdoc.id %}"
+                    <td><p>
+                        <a href="{% url 'welltory:diagnosisdownload' diagnosisdoc.id %}"
                             class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
-                            <i class="fas fa-arrow-right fa-sm text-white-50"></i> Download</a></p></td>
+                            <i class="fas fa-arrow-right fa-sm text-white-50"></i> Download</a>
+                        <a href="{% url 'welltory:documenttext' diagnosisdoc.id %}"
+                            class="d-none d-sm-inline-block btn btn-sm btn-warning shadow-sm">
+                            <i class="fas fa-arrow-right fa-sm text-white-50"></i> View Converted Text From DB</a>
+                    </p></td>
                 </tr>
                 {% endfor %}
 

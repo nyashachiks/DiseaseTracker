@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44e0e502-06f4-43a9-b609-075fc88166ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/111_Nutrition_Recommendations.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Description_of_markers_for_current_models.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Digital_Bio_Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/List_of_necessary_biomarkers_for_diagnosed_pathologies.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Model_information.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Risks_and_recommendations_for_breast_cancer.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/documents/Tech_Stack_description.pptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/diagnosis_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/diagnosis_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/diagnosis_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/diagnosis_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/diagnosisdoclist.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/diagnosisdoclist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/diagnosislist.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/diagnosislist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/diagnosisuploadprep.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/diagnosisuploadprep.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/patient_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/patient_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/patient_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/patient_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/patientlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/patientlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/welltory/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/welltory/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/welltory/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/welltory/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="157" column="48" lean-forward="true" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
+            <state relative-caret-position="2669">
+              <caret line="157" column="48" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -45,23 +27,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/welltory/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="332" column="38" lean-forward="true" selection-start-line="332" selection-start-column="38" selection-end-line="332" selection-end-column="38" />
+            <state relative-caret-position="275">
+              <caret line="299" selection-start-line="299" selection-end-line="299" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -112,8 +85,6 @@
         <option value="$PROJECT_DIR$/welltory/admin.py" />
         <option value="$PROJECT_DIR$/welltory/templates/clinic/diagnosislist.html" />
         <option value="$PROJECT_DIR$/welltory/models.py" />
-        <option value="$PROJECT_DIR$/welltory/utilities.py" />
-        <option value="$PROJECT_DIR$/welltory/views.py" />
         <option value="$PROJECT_DIR$/welltory/urls.py" />
         <option value="$PROJECT_DIR$/welltory/templates/clinic/patientlist.html" />
         <option value="$PROJECT_DIR$/welltory/templates/clinic/patient_form.html" />
@@ -123,6 +94,8 @@
         <option value="$PROJECT_DIR$/welltory/templates/clinic/diagnosisuploadprep.html" />
         <option value="$PROJECT_DIR$/welltory/templates/clinic/diagnosisdoclist.html" />
         <option value="$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html" />
+        <option value="$PROJECT_DIR$/welltory/utilities.py" />
+        <option value="$PROJECT_DIR$/welltory/views.py" />
       </list>
     </option>
   </component>
@@ -489,26 +462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/welltory/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="157" column="48" lean-forward="true" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/welltory/utilities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/welltory/templates/clinic/patientlist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -585,20 +538,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/welltory/views.py">
+    <entry file="file://$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="332" column="38" lean-forward="true" selection-start-line="332" selection-start-column="38" selection-end-line="332" selection-end-column="38" />
+        <state relative-caret-position="233">
+          <caret line="22" column="12" lean-forward="true" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
           <folding>
-            <element signature="e#0#54#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/welltory/templates/clinic/documentdetails.html">
+    <entry file="file://$PROJECT_DIR$/welltory/utilities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="338">
+          <caret line="52" column="44" lean-forward="true" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/welltory/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2669">
+          <caret line="157" column="48" selection-start-line="157" selection-start-column="48" selection-end-line="157" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/welltory/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="299" selection-start-line="299" selection-end-line="299" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

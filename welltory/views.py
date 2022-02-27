@@ -293,11 +293,10 @@ def diagnosisupload(request):
             path = row.upload.path
             pre_purge = path.rfind('\\')
             filename = path[pre_purge + 1:]
-            name, extension = filename.split('.')
+            purge = filename.rfind('.')
+            file_type = filename[purge + 1:]
+            extension = file_type
             filename = 'media/documents/' + str(filename)
-            print('==========================>>>>>')
-            print(filename)
-            print('==========================>>>>>')
 
             if extension == 'jpg' or extension == 'png':
                 file_object = ReadContents(filename)
@@ -328,9 +327,6 @@ class DiagnosisDocListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self):
         self.diagnosis = get_object_or_404(Diagnosis, pk=self.kwargs['id'])
         diagnosis = self.diagnosis.pk
-        print("=============>>>>>>>>")
-        print(diagnosis)
-        print("=================>>>>")
         return DiagnosisDoc.objects.filter(diagnosis=diagnosis)
 
     def get_context_data(self, **kwargs):
